@@ -1,9 +1,6 @@
 function stolenLunch(note) {
-    splitWord(note)
-}
-
-function splitWord(word){
-    return word.split("")
+    let wordArray = note.split("")
+    return replaceNumbers(wordArray)
 }
 
 function replaceNumbers(wordArray){

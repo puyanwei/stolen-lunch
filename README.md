@@ -27,6 +27,15 @@ The deciphered note.
 ### Process
 
 1. Split up the message into characters
-2. Pass in conditional to check if it is the character is a number
+2. Pass in conditional to check if character is a number
 3. Replace numbers with a-j
+4. Bind back the message and return
+
+Edit - Didn't realise that letters a-j reversed into numbers as well.
+
+### New Process
+
+1. Split up the message into characters
+2. Pass in conditional to check if character is a number or the letters a-j
+3. Replace numbers with a-j and a-j with numbers
 4. Bind back the message and return
