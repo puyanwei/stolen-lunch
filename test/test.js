@@ -6,6 +6,18 @@ describe('#StolenLunch', () => {
 
 describe('#splitWord', () => {
     it('Puts the word into an array of its characters ', () => {
-        expect("hello").toEqual(["h","e","l","l","o"])
+        expect(splitWord("hello")).toEqual(["h","e","l","l","o"])
+    });
+});
+
+// describe('#replaceNumbers', () => {
+//     it('Replaces any number found with a letter', () => {
+//         expect(replaceNumbers("h","4","l","l","o"," ","m","1","n")).toEqual(["h","e","l","l","o"," ","m","a","n"])
+//     });
+// });
+
+describe('#replaceNumbers', () => {
+    it('Replaces any number found with a letter', () => {
+        expect(replaceNumbers(["0", "a", "b", "c", "0"])).toEqual(["a", "a", "b", "c", "a"])
     });
 });
