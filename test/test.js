@@ -10,14 +10,17 @@ describe('#splitWord', () => {
     });
 });
 
-// describe('#replaceNumbers', () => {
-//     it('Replaces any number found with a letter', () => {
-//         expect(replaceNumbers("h","4","l","l","o"," ","m","1","n")).toEqual(["h","e","l","l","o"," ","m","a","n"])
-//     });
-// });
-
 describe('#replaceNumbers', () => {
     it('Replaces any number found with a letter', () => {
-        expect(replaceNumbers(["0", "a", "b", "c", "0"])).toEqual(["a", "a", "b", "c", "a"])
+        expect(replaceNumbers(["h","4","l","l","o"," ","m","0","n"])).toEqual("hello man")
+        expect(replaceNumbers(["0", "a", "b", "c", "0"])).toEqual("aabca")
+    });
+});
+
+describe('#checkCharacter', () => {
+    it('Replaces any number found with a letter', () => {
+        expect(checkCharacter("2")).toEqual("c")
+        expect(checkCharacter("0")).toEqual("a")
+        expect(checkCharacter("c")).toEqual("c")
     });
 });
