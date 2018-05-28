@@ -1,31 +1,32 @@
 function stolenLunch(note) {
     let wordArray = note.split("")
-    return replaceNumbers(wordArray)
+    return replaceChars(wordArray)
 }
 
-function replaceNumbers(wordArray){
-    let newWord = wordArray.map(function(element){
+function replaceChars(wordArray){
+    let newWord = wordArray.map(element => {
         return checkCharacter(element)
     })
     return newWord.join("");
 }
 
 function checkCharacter(character){
-    let characterHash = {
-        "0" : "a",
-        "1" : "b",
-        "2" : "c",
-        "3" : "d",
-        "4" : "e",
-        "5" : "f",
-        "6" : "g",
-        "7" : "h",
-        "8" : "i",
-        "9" : "j",
+    let charCode = character.charCodeAt()
+    // number
+    if (isNumberOrAJ(charCode, 96, 107)) {
+        return convert(charCode, 49)
     }
-    let regex = /^[0-9]/g;
-    if (regex.test(character) ) {
-        return characterHash[character]
+    // a or j
+    if (isNumberOrAJ(charCode, 47, 58)) {
+        return convert(charCode, -49)
     }
     return character
 }
+
+function isNumberOrAJ(charCode, min, max) {
+    return (charCode > min && charCode < max)
+}
+
+function convert(charCode, number) {
+        return String.fromCharCode(charCode - number)
+    }

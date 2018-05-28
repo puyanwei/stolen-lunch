@@ -9,10 +9,10 @@ describe('#StolenLunch', () => {
     });
 });
 
-describe('#replaceNumbers', () => {
+describe('#replaceChars', () => {
     it('Replaces any number found with a letter', () => {
-        expect(replaceNumbers(["h","4","l","l","o"," ","m","0","n"])).toEqual("hello man")
-        expect(replaceNumbers(["0", "a", "b", "c", "0"])).toEqual("aabca")
+        expect(replaceChars(["h","4","l","l","o"," ","m","0","n"])).toEqual("7ello man")
+        expect(replaceChars(["0", "a", "b", "c", "0"])).toEqual("a012a")
     });
 });
 
@@ -20,6 +20,23 @@ describe('#checkCharacter', () => {
     it('Replaces any number found with a letter', () => {
         expect(checkCharacter("2")).toEqual("c")
         expect(checkCharacter("0")).toEqual("a")
-        expect(checkCharacter("c")).toEqual("c")
+        expect(checkCharacter("c")).toEqual("2")
+        expect(checkCharacter("f")).toEqual("5")
+        expect(checkCharacter("")).toEqual("")
+        expect(checkCharacter("x")).toEqual("x")
     });
 });
+
+describe('#convert', () => {
+    it('adds 49 to the character code when it is a number, and subtracts it when it is a to j',() => {
+        expect(convert(99, 49)).toEqual("2")
+        expect(convert(55, -49)).toEqual("h")
+    })
+})
+describe('#isNumberOrAJ', () => {
+    it('returns true if it is a number',() => {
+        expect(isNumberOrAJ(98, 96, 107)).toBe(true)
+        expect(isNumberOrAJ(50, 47, 58)).toBe(true)
+
+    })
+})
